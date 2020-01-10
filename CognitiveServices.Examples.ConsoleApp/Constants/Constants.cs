@@ -12,8 +12,8 @@ namespace CognitiveServices.Examples.ConsoleApp
 
         public const string ENDPOINT = "https://westeurope.api.cognitive.microsoft.com/";
 
-        public static Guid PROJECT_ID = Guid.Parse("bafad5ce-b358-45e7-ad3f-640d1fb7cc40");
+        public static Guid PROJECT_ID = Guid.Parse("a09fe6ef-f2d9-43bc-a536-58c41893ce86");
 
-        public const string PUBLISHED_NAME = "Iteration 01";
+        public const string PUBLISHED_NAME = "fooooooood";
     }
 }

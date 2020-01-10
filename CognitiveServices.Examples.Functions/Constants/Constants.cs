@@ -9,8 +9,8 @@
         #endregion
 
         public const string HEADER_NAME = "Ocp-Apim-Subscription-Key";
-               
-        public const string TEXT_ANALYTICS_ENDPOINT = "http://localhost:5000/";
+
+        public const string TEXT_ANALYTICS_ENDPOINT = "https://cse-ta-01.cognitiveservices.azure.com/";
 
         #region TOP SECRET
 

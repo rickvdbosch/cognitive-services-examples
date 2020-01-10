@@ -14,7 +14,7 @@ namespace CognitiveServices.Examples.ConsoleApp
                 ApiKey = Constants.CV_KEY,
                 Endpoint = Constants.ENDPOINT
             };
-            using var stream = File.Open(@"c:\temp\testfile02.jpg", FileMode.Open);
+            using var stream = File.Open(@"c:\temp\testfile01.jpg", FileMode.Open);
             var prediction = client.ClassifyImage(Constants.PROJECT_ID, Constants.PUBLISHED_NAME, stream);
             foreach (var pred in prediction.Predictions)
             {
