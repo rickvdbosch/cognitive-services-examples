@@ -2,20 +2,13 @@
 {
     public static class Constants
     {
-        #region SECRETS
-
-        public const string TA_KEY = "0491518ce5874b659fb6b1751a655c8f";
-
-        #endregion
+        public const string TA_KEY = "<YOUR_TEXTANALYSIS_KEY>";
 
         public const string HEADER_NAME = "Ocp-Apim-Subscription-Key";
 
-        public const string TEXT_ANALYTICS_ENDPOINT = "https://cse-ta-01.cognitiveservices.azure.com/";
+        public const string TEXT_ANALYTICS_ENDPOINT = "https://<YOUR_TEXTANALYSIS_SERVICE>.cognitiveservices.azure.com/";
 
-        #region TOP SECRET
-
-        //public const string TEXT_ANALYTICS_ENDPOINT = "http://localhost:5000/";
-
-        #endregion
+        // For when you're running the text analysis in a Docker container, connect to this endpoint.
+        // public const string TEXT_ANALYTICS_ENDPOINT = "http://localhost:5000/";
     }
 }

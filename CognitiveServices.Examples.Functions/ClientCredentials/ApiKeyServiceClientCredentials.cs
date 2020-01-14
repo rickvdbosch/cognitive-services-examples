@@ -11,7 +11,7 @@ namespace CognitiveServices.Examples.Functions.ClientCredentials
     {
         #region Fields
 
-        private readonly string apiKey;
+        private readonly string _key;
 
         #endregion
 
@@ -19,7 +19,7 @@ namespace CognitiveServices.Examples.Functions.ClientCredentials
 
         public ApiKeyServiceClientCredentials(string apiKey)
         {
-            this.apiKey = apiKey;
+            _key = apiKey;
         }
 
         #endregion
@@ -30,7 +30,7 @@ namespace CognitiveServices.Examples.Functions.ClientCredentials
             {
                 throw new ArgumentNullException(nameof(request));
             }
-            request.Headers.Add(Constants.HEADER_NAME, apiKey);
+            request.Headers.Add(Constants.HEADER_NAME, _key);
 
             return base.ProcessHttpRequestAsync(request, cancellationToken);
         }
