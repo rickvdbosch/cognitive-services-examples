@@ -47,7 +47,7 @@ namespace CognitiveServices.Examples.Functions
                 using (var content = new ByteArrayContent(byteData))
                 {
                     content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-                    var response = await client.PostAsync("text/analytics/v2.1/sentiment", content);
+                    var response = await client.PostAsync("text/analytics/v3.0/sentiment", content);
                     if (response.IsSuccessStatusCode)
                     {
                         result = await response.Content.ReadAsStringAsync();
