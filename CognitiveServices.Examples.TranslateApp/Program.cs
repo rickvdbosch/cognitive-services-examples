@@ -21,12 +21,10 @@ namespace CognitiveServices.Examples.TranslateApp
         static async Task Main(string[] args)
         {
             using var client = new HttpClient();
-            var token = await GetTokenAsync(client);
-
             Console.WriteLine(TRANSLATE);
             var input = Console.ReadLine();
-            
-            // As long as the input is NOT 'q', translate the text fron English to Dutch.
+
+            // As long as the input is NOT 'q', translate the text from English to Dutch.
             while (!input.Equals("q"))
             {
                 // Create an HttpRequestMessage to send to the translator service.
@@ -37,7 +35,8 @@ namespace CognitiveServices.Examples.TranslateApp
                     RequestUri = new Uri("https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=nl"),
                     Content = new StringContent(JsonSerializer.Serialize(body), Encoding.UTF8, "application/json")
                 };
-                request.Headers.Add("Authorization", $"Bearer {token}");
+                request.Headers.Add("Ocp-Apim-Subscription-Key", TEXT_TRANSLATION_KEY);
+                request.Headers.Add("Ocp-Apim-Subscription-Region", TEXT_TRANSLATION_LOCATION);
 
                 // Send the request and process the result.
                 var response = await client.SendAsync(request);
@@ -50,28 +49,5 @@ namespace CognitiveServices.Examples.TranslateApp
 
             Console.WriteLine("We're done here ...");
         }
-
-        #region Private methods
-
-        /// <summary>
-        /// Gets an access token for a TextTranslation Cognitive Service
-        /// </summary>
-        /// <param name="client">The <see cref="HttpClient"/> to use for the request.</param>
-        /// <returns>An access token.</returns>
-        private static async Task<string> GetTokenAsync(HttpClient client)
-        {
-            using var request = new HttpRequestMessage
-            {
-                Method = HttpMethod.Post,
-                RequestUri = new Uri(TEXT_TRANSLATION_SERVICE)
-            };
-            request.Headers.Add("Ocp-Apim-Subscription-Key", TEXT_TRANSLATION_KEY);
-            request.Headers.Add("Ocp-Apim-Subscription-Region", TEXT_TRANSLATION_LOCATION);
-            var response = await client.SendAsync(request);
-
-            return await response.Content.ReadAsStringAsync();
-        }
-
-        #endregion
     }
 }
